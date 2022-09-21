@@ -12,4 +12,6 @@ function Book(title, author, pages, read){
     }
 }
 const locklands = new Book('Locklands','Robert Jackson Bennet',544,'read');
-console.log(locklands.info());
+const uzumaki = new Book('Uzumaki','Junji Ito',110,'read');
+const cytonic = new Book('Cytonic','Brandon Sanderson',409,'read');
+myLibrary.push(locklands,uzumaki,cytonic);
