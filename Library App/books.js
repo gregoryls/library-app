@@ -42,9 +42,11 @@ bookSubmitButton.addEventListener('click', () =>{
         userReadInput.value = '';
         myLibrary.push(userBook);
         const tableRows = table.rows.length;
-        for (let i = 0; i < tableRows;i++) {
+        for (let i = 1; i < tableRows;i++) {
             table.deleteRow(1);
+            
         };
+        displayLibraryBooks(myLibrary);
         
         
 });
