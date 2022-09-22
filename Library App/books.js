@@ -1,7 +1,8 @@
 let myLibrary = [];
 const table = document.getElementById('bookList');
 const bookSubmitButton = document.querySelector('#bookSubmit');
-
+const button = document.createElement('button');
+button.textContent = '🗑';
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -31,7 +32,10 @@ function displayLibraryBooks(books){
         let read = row.insertCell(3);
         read.textContent = book.read;
         let trash = row.insertCell(4);
-        trash.textContent = '🗑';
+        // trash.textContent = '🗑';
+        trash.innerHTML = "<button>🗑</button>";
+
+        // 
     })
 }
 displayLibraryBooks(myLibrary);
