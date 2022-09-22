@@ -48,8 +48,3 @@ bookSubmitButton.addEventListener('click', () =>{
         
         
 });
-// let childNodes = table.childNodes;
-// console.log(childNodes.length)
-// let tableRows = document.querySelector('#bookList tr')
-// console.log(tableRows.childNodes)
-console.log(table.rows.length)
