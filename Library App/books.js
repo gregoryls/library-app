@@ -41,6 +41,15 @@ bookSubmitButton.addEventListener('click', () =>{
         userPagesInput.value = '';
         userReadInput.value = '';
         myLibrary.push(userBook);
+        const tableRows = table.rows.length;
+        for (let i = 0; i < tableRows;i++) {
+            table.deleteRow(1);
+        };
         
         
-})
+});
+// let childNodes = table.childNodes;
+// console.log(childNodes.length)
+// let tableRows = document.querySelector('#bookList tr')
+// console.log(tableRows.childNodes)
+console.log(table.rows.length)
