@@ -38,6 +38,6 @@ th,td{
 tr:hover{
     background-color: yellow;
 }
-/* tr:nth-child(even){
-    background-color: rgba(127, 255, 212, 0.37);
-} */
+tr:nth-child(even){
+    background-color: rgba(65, 65, 65, 0.151);
+}
