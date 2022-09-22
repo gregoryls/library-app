@@ -14,6 +14,7 @@ body{
 }
 #content{
     background-color: rgba(219, 55, 219, 0.418);
+    overflow: auto;
 }
 #sidebar{
     background-color: rgba(128, 128, 128, 0.541);
@@ -22,6 +23,10 @@ body{
 }
 table{
     border-collapse: collapse;
+    width: max(650px,90%);
+    
+    margin: auto;
+    
 }
 th,td{
     border-bottom: 1px solid;
@@ -29,3 +34,6 @@ th,td{
 tr:hover{
     background-color: yellow;
 }
+/* tr:nth-child(even){
+    background-color: rgba(127, 255, 212, 0.37);
+} */
