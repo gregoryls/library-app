@@ -24,9 +24,13 @@ body{
 table{
     border-collapse: collapse;
     width: max(650px,90%);
-    
     margin: auto;
-    
+}
+table tr td:nth-child(n+3){
+    text-align: center;
+}
+th:nth-child(-n+2){
+    text-align: left;
 }
 th,td{
     border-bottom: 1px solid;
