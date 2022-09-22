@@ -43,3 +43,12 @@ tr:hover{
     /* must come after alternating row background color */
     background-color: yellow;
 }
+form { 
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 10px;
+    
+}
+input{
+    margin-bottom: 8px;
+}
