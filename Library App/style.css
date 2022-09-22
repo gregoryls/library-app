@@ -35,9 +35,11 @@ th:nth-child(-n+2){
 th,td{
     border-bottom: 1px solid;
 }
-tr:hover{
-    background-color: yellow;
-}
+
 tr:nth-child(even){
     background-color: rgba(65, 65, 65, 0.151);
+}
+tr:hover{
+    /* must come after alternating row background color */
+    background-color: yellow;
 }
