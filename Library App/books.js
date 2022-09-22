@@ -36,6 +36,11 @@ displayLibraryBooks(myLibrary);
 bookSubmitButton.addEventListener('click', () =>{
     const userBook = new Book(userTitleInput.value,userAuthorInput.value,
         userPagesInput.value,userReadInput.value);
+        userTitleInput.value = '';
+        userAuthorInput.value = '';
+        userPagesInput.value = '';
+        userReadInput.value = '';
         myLibrary.push(userBook);
+        
         
 })
