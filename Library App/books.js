@@ -1,5 +1,6 @@
 let myLibrary = [];
-const table = document.getElementById('bookList')
+const table = document.getElementById('bookList');
+const bookSubmitButton = document.querySelector('#bookSubmit');
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
