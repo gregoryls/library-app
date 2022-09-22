@@ -1,6 +1,7 @@
 let myLibrary = [];
 const table = document.getElementById('bookList');
 const bookSubmitButton = document.querySelector('#bookSubmit');
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -12,9 +13,9 @@ function Book(title, author, pages, read){
         return infoString;
     }
 }
-const locklands = new Book('Locklands','Robert Jackson Bennet',544,'read');
-const uzumaki = new Book('Uzumaki','Junji Ito',110,'read');
-const cytonic = new Book('Cytonic','Brandon Sanderson',409,'read');
+const locklands = new Book('Locklands','Robert Jackson Bennet',544,'Yes');
+const uzumaki = new Book('Uzumaki','Junji Ito',110,'Yes');
+const cytonic = new Book('Cytonic','Brandon Sanderson',409,'Yes');
 myLibrary.push(locklands,uzumaki,cytonic);
 
 function displayLibraryBooks(books){
@@ -31,3 +32,10 @@ function displayLibraryBooks(books){
     })
 }
 displayLibraryBooks(myLibrary);
+
+bookSubmitButton.addEventListener('click', () =>{
+    const userBook = new Book(userTitleInput.value,userAuthorInput.value,
+        userPagesInput.value,userReadInput.value);
+        myLibrary.push(userBook);
+        
+})
