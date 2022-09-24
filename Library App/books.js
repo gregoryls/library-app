@@ -1,8 +1,8 @@
 let myLibrary = [];
 const table = document.getElementById('bookList');
 const bookSubmitButton = document.querySelector('#bookSubmit');
-const button = document.createElement('button');
-button.textContent = '🗑';
+// const button = document.createElement('button');
+// button.textContent = '🗑';
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -33,10 +33,21 @@ function displayLibraryBooks(books){
         read.textContent = book.read;
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
-        trash.innerHTML = "<button>X</button>";
+        trash.innerHTML = `<button  >X</button>`;
+        
 
         // https://stackoverflow.com/questions/45656949/how-to-return-the-row-and-column-index-of-a-table-cell-by-clicking
-    })
+    });
+    // This code block finds all buttons with a table ancestor and adds a function
+    // to each that on click finds the closest table row to that button and deletes 
+    // the row in the table with that row's index. 
+    let buttons = document.querySelectorAll('table button');
+    buttons.forEach(x => {
+        x.addEventListener('click', ()=>{
+            // console.log(x.closest('tr').rowIndex);
+            table.deleteRow(x.closest('tr').rowIndex);
+        });
+    });
 }
 displayLibraryBooks(myLibrary);
 
