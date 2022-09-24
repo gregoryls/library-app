@@ -44,8 +44,11 @@ function displayLibraryBooks(books){
     let buttons = document.querySelectorAll('table button');
     buttons.forEach(x => {
         x.addEventListener('click', ()=>{
-            // console.log(x.closest('tr').rowIndex);
-            table.deleteRow(x.closest('tr').rowIndex);
+            let deleteIndex = x.closest('tr').rowIndex;
+            console.log(deleteIndex)
+            table.deleteRow(deleteIndex);
+            myLibrary.splice(deleteIndex-1,1)
+            //Find a way to add a confirmation
         });
     });
 }
@@ -55,6 +58,7 @@ bookSubmitButton.addEventListener('click', () =>{
     if (userTitleInput.value == '') return;
     const userBook = new Book(userTitleInput.value,userAuthorInput.value,
         userPagesInput.value,userReadInput.value);
+        //clears the user submission form
         userTitleInput.value = '';
         userAuthorInput.value = '';
         userPagesInput.value = '';
