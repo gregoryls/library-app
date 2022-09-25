@@ -46,12 +46,15 @@ function displayLibraryBooks(books){
         x.addEventListener('click', ()=>{
             
             let deleteIndex = x.closest('tr').rowIndex;
-            confirm(`Are you sure you want to delete ${table.rows[deleteIndex].cells[0].textContent }`);
-            console.log(deleteIndex)
-            table.deleteRow(deleteIndex);
-            //remove book from library after deleting the table entry
-            myLibrary.splice(deleteIndex-1,1)
-            //Find a way to add a confirmation
+            if (confirm(`Are you sure you want to delete ${table.rows[deleteIndex].cells[0].textContent }`)){
+
+            
+                console.log(deleteIndex)
+                table.deleteRow(deleteIndex);
+                //remove book from library after deleting the table entry
+                myLibrary.splice(deleteIndex-1,1)
+                //Find a way to add a confirmation
+            };
         });
     });
 }
