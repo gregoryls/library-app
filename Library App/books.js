@@ -30,8 +30,9 @@ function displayLibraryBooks(books){
         let pages = row.insertCell(2);
         pages.textContent = book.pages;
         let read = row.insertCell(3);
-        
-        read.innerHTML = '<input type=\"checkbox\"></input>';
+        //in book function read in checked or unchecked 
+        read.innerHTML = '<input type=\"checkbox\" unchecked></input>';
+        read.checked = true;
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
         trash.innerHTML = `<button  >X</button>`;
@@ -53,7 +54,7 @@ function displayLibraryBooks(books){
                 table.deleteRow(deleteIndex);
                 //remove book from library after deleting the table entry
                 myLibrary.splice(deleteIndex-1,1)
-                //Find a way to add a confirmation
+                
             };
         });
     });
@@ -63,7 +64,7 @@ displayLibraryBooks(myLibrary);
 bookSubmitButton.addEventListener('click', () =>{
     if (userTitleInput.value == '') return;
     const userBook = new Book(userTitleInput.value,userAuthorInput.value,
-        userPagesInput.value,userReadInput.value);
+        userPagesInput.value,userReadInput.checked);
         //clears the user submission form
         userTitleInput.value = '';
         userAuthorInput.value = '';
