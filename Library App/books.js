@@ -8,16 +8,21 @@ function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    // (this.read) ? this.read = 'checked' : this.read = 'unchecked';
+    // if (this.read) {
+    //     this.read = 'checked';
+    // };
     this.read = read;
     this.info = function() {
         let infoString = '';
+        //need to fix read portion with new checked method
         infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + read;
         return infoString;
     }
 }
-const locklands = new Book('Locklands','Robert Jackson Bennet',544,'Yes');
-const uzumaki = new Book('Uzumaki','Junji Ito',110,'Yes');
-const cytonic = new Book('Cytonic','Brandon Sanderson',409,'Yes');
+const locklands = new Book('Locklands','Robert Jackson Bennet',544,true);
+const uzumaki = new Book('Uzumaki','Junji Ito',110,true);
+const cytonic = new Book('Cytonic','Brandon Sanderson',409,true);
 myLibrary.push(locklands,uzumaki,cytonic);
 
 function displayLibraryBooks(books){
@@ -31,7 +36,8 @@ function displayLibraryBooks(books){
         pages.textContent = book.pages;
         let read = row.insertCell(3);
         //in book function read in checked or unchecked 
-        read.innerHTML = '<input type=\"checkbox\" unchecked></input>';
+        console.log(book.read)
+        read.innerHTML = '<input type=\"checkbox\" ></input>';
         read.checked = true;
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
