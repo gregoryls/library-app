@@ -37,8 +37,11 @@ function displayLibraryBooks(books){
         let read = row.insertCell(3);
         //in book function read in checked or unchecked 
         console.log(book.read)
-        read.innerHTML = '<input type=\"checkbox\" ></input>';
-        read.checked = true;
+        if (book.read) {
+            read.innerHTML = '<input type=\"checkbox\" checked></input>';
+        } else { read.innerHTML = '<input type=\"checkbox\" ></input>';}
+        // read.innerHTML = '<input type=\"checkbox\" ></input>';
+        // read.checked = true;
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
         trash.innerHTML = `<button  >X</button>`;
