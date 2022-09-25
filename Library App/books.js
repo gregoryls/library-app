@@ -30,7 +30,8 @@ function displayLibraryBooks(books){
         let pages = row.insertCell(2);
         pages.textContent = book.pages;
         let read = row.insertCell(3);
-        read.textContent = book.read;
+        
+        read.innerHTML = '<input type=\"checkbox\"></input>';
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
         trash.innerHTML = `<button  >X</button>`;
@@ -46,9 +47,8 @@ function displayLibraryBooks(books){
         x.addEventListener('click', ()=>{
             
             let deleteIndex = x.closest('tr').rowIndex;
-            if (confirm(`Are you sure you want to delete ${table.rows[deleteIndex].cells[0].textContent }`)){
-
-            
+            if (confirm(`Are you sure you want to delete 
+            ${table.rows[deleteIndex].cells[0].textContent }`)){
                 console.log(deleteIndex)
                 table.deleteRow(deleteIndex);
                 //remove book from library after deleting the table entry
