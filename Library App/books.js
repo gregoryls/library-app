@@ -35,7 +35,7 @@ function displayLibraryBooks(books){
         // trash.textContent = '🗑';
         trash.innerHTML = `<button  >X</button>`;
         
-
+        // reference on cellIndex and rowIndex
         // https://stackoverflow.com/questions/45656949/how-to-return-the-row-and-column-index-of-a-table-cell-by-clicking
     });
     // This code block finds all buttons with a table ancestor and adds a function
@@ -44,9 +44,12 @@ function displayLibraryBooks(books){
     let buttons = document.querySelectorAll('table button');
     buttons.forEach(x => {
         x.addEventListener('click', ()=>{
+            
             let deleteIndex = x.closest('tr').rowIndex;
+            confirm(`Are you sure you want to delete ${table.rows[deleteIndex].cells[0].textContent }`);
             console.log(deleteIndex)
             table.deleteRow(deleteIndex);
+            //remove book from library after deleting the table entry
             myLibrary.splice(deleteIndex-1,1)
             //Find a way to add a confirmation
         });
