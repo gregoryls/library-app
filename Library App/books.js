@@ -35,13 +35,12 @@ function displayLibraryBooks(books){
         let pages = row.insertCell(2);
         pages.textContent = book.pages;
         let read = row.insertCell(3);
-        //in book function read in checked or unchecked 
         console.log(book.read)
         if (book.read) {
             read.innerHTML = '<input type=\"checkbox\" checked></input>';
-        } else { read.innerHTML = '<input type=\"checkbox\" ></input>';}
-        // read.innerHTML = '<input type=\"checkbox\" ></input>';
-        // read.checked = true;
+        } else { read.innerHTML = '<input type=\"checkbox\" ></input>'};
+        //Next add event listener to table checkboxes to update the array 
+        //when user clicks on table
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
         trash.innerHTML = `<button  >X</button>`;
@@ -67,6 +66,15 @@ function displayLibraryBooks(books){
             };
         });
     });
+
+    let checks = document.querySelectorAll('table input');
+    checks.forEach(y => {
+        y.addEventListener('click',()=>{
+            let rowUpdate = y.closest('tr').rowIndex;
+            //invert read status between true and false on checkbox click
+            myLibrary[rowUpdate-1].read = !myLibrary[rowUpdate-1].read;
+        })
+    })
 }
 displayLibraryBooks(myLibrary);
 
