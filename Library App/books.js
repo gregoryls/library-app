@@ -7,7 +7,13 @@ const bookSubmitButton = document.querySelector('#bookSubmit');
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
-    this.pages = pages;
+    let numTest = parseInt(pages);
+    console.log(numTest);
+    if (Number.isNaN(numTest)) {
+         this.pages = '';
+    } else this.pages = pages;
+    // this.pages = Number(pages);
+    // if (this.pages === NaN) this.pages = '';
     // (this.read) ? this.read = 'checked' : this.read = 'unchecked';
     // if (this.read) {
     //     this.read = 'checked';
@@ -15,11 +21,12 @@ function Book(title, author, pages, read){
     this.read = read;
     this.info = function() {
         let infoString = '';
-        //need to fix read portion with new checked method
+        //needs to be updated for read = true/false
         infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + read;
         return infoString;
     }
 }
+//TODO - restrict page count to number only if(pages typeof ==num) etc
 const locklands = new Book('Locklands','Robert Jackson Bennet',544,true);
 const uzumaki = new Book('Uzumaki','Junji Ito',110,true);
 const cytonic = new Book('Cytonic','Brandon Sanderson',409,true);
@@ -34,13 +41,12 @@ function displayLibraryBooks(books){
         author.textContent = book.author;
         let pages = row.insertCell(2);
         pages.textContent = book.pages;
+        // if (book.pages === NaN) {pages.textContent = ''}
         let read = row.insertCell(3);
         console.log(book.read)
         if (book.read) {
-            read.innerHTML = '<input type=\"checkbox\" checked></input>';
-        } else { read.innerHTML = '<input type=\"checkbox\" ></input>'};
-        //Next add event listener to table checkboxes to update the array 
-        //when user clicks on table
+            read.innerHTML = '<input type=\"checkbox\" checked></input>'
+        } else { read.innerHTML = '<input type=\"checkbox\" ></input>'}
         let trash = row.insertCell(4);
         // trash.textContent = '🗑';
         trash.innerHTML = `<button  >X</button>`;
@@ -82,6 +88,7 @@ bookSubmitButton.addEventListener('click', () =>{
     if (userTitleInput.value == '') return;
     const userBook = new Book(userTitleInput.value,userAuthorInput.value,
         userPagesInput.value,userReadInput.checked);
+        console.log(typeof userBook.pages)
         //clears the user submission form
         userTitleInput.value = '';
         userAuthorInput.value = '';
