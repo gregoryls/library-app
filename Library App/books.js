@@ -1,8 +1,7 @@
 let myLibrary = [];
 const table = document.getElementById('bookList');
 const bookSubmitButton = document.querySelector('#bookSubmit');
-// const button = document.createElement('button');
-// button.textContent = '🗑';
+
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -13,16 +12,11 @@ function Book(title, author, pages, read){
     if (Number.isNaN(numTest)) {
          this.pages = '';
     } else this.pages = pages;
-    // this.pages = Number(pages);
-    // if (this.pages === NaN) this.pages = '';
-    // (this.read) ? this.read = 'checked' : this.read = 'unchecked';
-    // if (this.read) {
-    //     this.read = 'checked';
-    // };
+    
     this.read = read;
     this.info = function() {
         let infoString = '';
-        //needs to be updated for read = true/false
+        //convert the read boolean to read/unread
         infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + ((read)?'read':'unread');
         return infoString;
     }
@@ -42,14 +36,14 @@ function displayLibraryBooks(books){
         author.textContent = book.author;
         let pages = row.insertCell(2);
         pages.textContent = book.pages;
-        // if (book.pages === NaN) {pages.textContent = ''}
+        
         let read = row.insertCell(3);
         console.log(book.read)
         if (book.read) {
             read.innerHTML = '<input type=\"checkbox\" checked></input>'
         } else { read.innerHTML = '<input type=\"checkbox\" ></input>'}
         let trash = row.insertCell(4);
-        // trash.textContent = '🗑';
+        
         trash.innerHTML = `<button  >X</button>`;
         
         // reference on cellIndex and rowIndex
