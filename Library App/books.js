@@ -9,6 +9,7 @@ function Book(title, author, pages, read){
     this.author = author;
     let numTest = parseInt(pages);
     console.log(numTest);
+    ///relational comparison is always false when NaN is one of the operands
     if (Number.isNaN(numTest)) {
          this.pages = '';
     } else this.pages = pages;
@@ -22,7 +23,7 @@ function Book(title, author, pages, read){
     this.info = function() {
         let infoString = '';
         //needs to be updated for read = true/false
-        infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + read;
+        infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + ((read)?'read':'unread');
         return infoString;
     }
 }
