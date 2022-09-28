@@ -68,9 +68,9 @@ function displayLibraryBooks(books){
     });
 
     let checks = document.querySelectorAll('table input');
-    checks.forEach(y => {
-        y.addEventListener('click',()=>{
-            let rowUpdate = y.closest('tr').rowIndex;
+    checks.forEach(check => {
+        check.addEventListener('click',()=>{
+            let rowUpdate = check.closest('tr').rowIndex;
             //invert read status between true and false on checkbox click
             myLibrary[rowUpdate-1].read = !myLibrary[rowUpdate-1].read;
         })
