@@ -53,10 +53,10 @@ function displayLibraryBooks(books){
     // to each that on click finds the closest table row to that button and deletes 
     // the row in the table with that row's index. 
     let buttons = document.querySelectorAll('table button');
-    buttons.forEach(x => {
-        x.addEventListener('click', ()=>{
+    buttons.forEach(btn => {
+        btn.addEventListener('click', ()=>{
             
-            let deleteIndex = x.closest('tr').rowIndex;
+            let deleteIndex = btn.closest('tr').rowIndex;
             if (confirm(`Are you sure you want to delete 
             ${table.rows[deleteIndex].cells[0].textContent }`)){
                 table.deleteRow(deleteIndex);
