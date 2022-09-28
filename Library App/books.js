@@ -6,7 +6,7 @@ const bookSubmitButton = document.querySelector('#bookSubmit');
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
-    let numTest = parseInt(pages);
+    let numTest = Number(pages);
     console.log(numTest);
     ///relational comparison is always false when NaN is one of the operands
     if (Number.isNaN(numTest)) {
