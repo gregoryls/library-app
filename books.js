@@ -7,9 +7,8 @@ function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
     //check if supplied pages is a number or other
-    let numTest = Number(pages);
     ///relational comparison is always false when NaN is one of the operands
-    if (Number.isNaN(numTest)) {
+    if (Number.isNaN(Number(pages))) {
          this.pages = '';
     } else this.pages = pages;
     
@@ -21,6 +20,13 @@ function Book(title, author, pages, read){
         return infoString;
     }
 }
+
+// class BookBook{
+//     constructor(title,author,pages,read){
+//         this.title = title;
+//         this.author = author;
+//     }
+// }
 //three sample books to have the library be preloaded with something
 const locklands = new Book('Locklands','Robert Jackson Bennet',544,true);
 const uzumaki = new Book('Uzumaki','Junji Ito',110,true);
