@@ -2,31 +2,45 @@ let myLibrary = [];
 const table = document.getElementById('bookList');
 const bookSubmitButton = document.querySelector('#bookSubmit');
 
-
-function Book(title, author, pages, read){
-    this.title = title;
-    this.author = author;
-    //check if supplied pages is a number or other
-    ///relational comparison is always false when NaN is one of the operands
-    if (Number.isNaN(Number(pages))) {
-         this.pages = '';
-    } else this.pages = pages;
+////factory function vs using class seen below
+// function Book(title, author, pages, read){
+//     this.title = title;
+//     this.author = author;
+//     //check if supplied pages is a number or other
+//     ///relational comparison is always false when NaN is one of the operands
+//     if (Number.isNaN(Number(pages))) {
+//          this.pages = '';
+//     } else this.pages = pages;
     
-    this.read = read;
-    this.info = function() {
+//     this.read = read;
+//     this.info = function() {
+//         let infoString = '';
+//         //convert the read boolean to read/unread
+//         infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + ((read)?'read':'unread');
+//         return infoString;
+//     }
+// }
+
+class Book{
+    constructor(title,author,pages,read){
+        this.title = title;
+        this.author = author;
+        this.read = read;
+        //check if supplied pages is a number or other
+        ///relational comparison is always false when NaN is one of the operands
+        if (Number.isNaN(Number(pages))) {
+            this.pages = '';
+        } else this.pages = pages;
+
+    }
+
+    info() {
         let infoString = '';
         //convert the read boolean to read/unread
         infoString = title + ' by ' + author + ', ' + pages + ' pages, ' + ((read)?'read':'unread');
         return infoString;
     }
 }
-
-// class BookBook{
-//     constructor(title,author,pages,read){
-//         this.title = title;
-//         this.author = author;
-//     }
-// }
 //three sample books to have the library be preloaded with something
 const locklands = new Book('Locklands','Robert Jackson Bennet',544,true);
 const uzumaki = new Book('Uzumaki','Junji Ito',110,true);
